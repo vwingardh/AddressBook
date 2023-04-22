@@ -94,7 +94,8 @@ public class AddressRepository {
         return null;
     }
 
-    // Updates the address with associated id
+    // Replaces the address with associated id, need new
+    // address object since we do not have form data
     public Address updateAddress(String id, Address updatedAddress) {
         for (Address address : addresses) {
             if (address.getId().equals(id)) {
