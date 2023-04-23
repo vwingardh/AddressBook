@@ -17,6 +17,7 @@ public class AddressController {
         this.addressRepository = addressRepository;
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping
     public List<Address> getAllAddresses() {
         return addressRepository.getAllAddresses();
