@@ -6,9 +6,20 @@ function getAddresses(element) {
 
             for (let i = 0; i < data.length; i++) {
                 const address = data[i];
-                const addressDiv = document.createElement("div");
-                addressDiv.textContent = `${address.firstName} ${address.lastName}, ${address.addressLine1}, ${address.addressLine2}, ${address.postalCode}, ${address.city}, ${address.country}`;
-                addressList.appendChild(addressDiv);
+                const addressNameDiv = document.createElement("div");
+                addressNameDiv.setAttribute("class", "address-name");
+                addressNameDiv.textContent = `${address.firstName} ${address.lastName}`;
+
+                addressStreetDiv = document.createElement("div");
+                addressStreetDiv.setAttribute("class", "address-street");
+                addressStreetDiv.textContent = `${address.addressLine1}, ${address.addressLine2}`;
+
+                addressCityDiv = document.createElement("div");
+                addressCityDiv.textContent = `${address.city}, ${address.country} ${address.postalCode}`;
+
+                addressList.appendChild(addressNameDiv);
+                addressList.appendChild(addressStreetDiv);
+                addressList.appendChild(addressCityDiv);
             }
             element.appendChild(addressList);
         })
@@ -19,4 +30,3 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainElement = document.querySelector("main");
     getAddresses(mainElement);
 });
-
