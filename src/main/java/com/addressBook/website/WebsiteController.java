@@ -10,4 +10,9 @@ public class WebsiteController {
     public String index() {
         return "index.html";
     }
+
+    @GetMapping("/detailed-address")
+    public String detailedAddress() {
+        return "add_address.html";
+    }
 }
